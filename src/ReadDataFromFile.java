@@ -12,7 +12,7 @@ public  class  ReadDataFromFile implements IReadable
         {
             String line;
             while ((line = br.readLine()) != null) {
-                str += line;
+                str += line + "\n";
             }
         } catch (IOException e) {
             e.printStackTrace();
