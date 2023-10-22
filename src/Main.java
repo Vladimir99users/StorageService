@@ -21,7 +21,10 @@ public class Main {
 
         Map<Integer,UsefulObject> dictionary = SetDataFromDictionary(usefulObjects);
 
-        PrintValue(usefulObjects);
+        RequestService service = new RequestService();
+
+
+        service.RunService(dictionary);
     }
 
     private  static  List<UsefulObject> GetDataFromString(String finallyStr)

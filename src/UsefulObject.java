@@ -16,4 +16,9 @@ public class UsefulObject
         Description = description;
         URL = uRL;
     }
+    
+    public void PrintData()
+    {
+        System.out.printf(String.format("ID %d , Name %s , Description %s, URL %s ", ID, Name, Description, URL));
+    }
 }
