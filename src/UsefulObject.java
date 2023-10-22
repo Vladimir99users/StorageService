@@ -7,9 +7,9 @@ public class UsefulObject
 
     public  UsefulObject()
     {
-        this("default name", "default Description", "default url", -1 );
+        this(-1, "default name", "default Description", "default url"  );
     }
-    public UsefulObject(String name, String description, String uRL, int id)
+    public UsefulObject(int id, String name, String description, String uRL )
     {
         ID = id;
         Name = name;
