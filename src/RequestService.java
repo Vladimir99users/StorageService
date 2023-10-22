@@ -4,9 +4,14 @@ import java.util.Scanner;
 public class RequestService
 {
     private Map<Integer,UsefulObject> _dictionary;
-    public  void RunService(Map<Integer,UsefulObject> dictionary)
+
+    public RequestService(Map<Integer,UsefulObject> dictionary)
     {
         _dictionary = dictionary;
+    }
+    public  void RunService()
+    {
+
 
         Scanner scanner = new Scanner(System.in);
         boolean isExit = false;
