@@ -21,10 +21,9 @@ public class Main {
 
         Map<Integer,UsefulObject> dictionary = SetDataFromDictionary(usefulObjects);
 
-        RequestService service = new RequestService();
+        RequestService service = new RequestService(dictionary);
 
-
-        service.RunService(dictionary);
+        service.RunService();
     }
 
     private  static  List<UsefulObject> GetDataFromString(String finallyStr)

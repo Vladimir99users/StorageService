@@ -1,12 +1,19 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
 public class RequestService
 {
     private Map<Integer,UsefulObject> _dictionary;
-    public  void RunService(Map<Integer,UsefulObject> dictionary)
+
+    public RequestService(Map<Integer,UsefulObject> dictionary)
     {
         _dictionary = dictionary;
+    }
+    public  void RunService()
+    {
+
 
         Scanner scanner = new Scanner(System.in);
         boolean isExit = false;
@@ -24,10 +31,14 @@ public class RequestService
 
             switch (choice) {
                 case 1 :
-                    displayRecordById();
+                    System.out.print("Enter ID: ");
+                    int indexFind = scanner.nextInt();
+                    displayRecordById(indexFind);
                     break;
                 case 2 :
-                    displayRecordsByName();
+                    System.out.print("Enter string: ");
+                    String nameSearch = scanner.nextLine();
+                    displayRecordsByName(nameSearch);
                     break;
                 case 3 :
                     isExit = true;
@@ -38,11 +49,10 @@ public class RequestService
         }
     }
 
-    private void displayRecordById()
+    public UsefulObject displayRecordById(int choice)
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter ID: ");
-        int choice = scanner.nextInt();
+
 
         UsefulObject obj = _dictionary.get(choice);
 
@@ -52,21 +62,21 @@ public class RequestService
         }
 
         obj.PrintData();
+        return  obj;
     }
 
-    private void displayRecordsByName()
+    public UsefulObject  displayRecordsByName(String name)
     {
+        UsefulObject useful = new UsefulObject();
         int stack = 0;
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter string: ");
-        String nameSearch = scanner.nextLine();
 
         for (UsefulObject obj : _dictionary.values() )
         {
-            if(nameSearch.equalsIgnoreCase(obj.Name))
+            if(name.equalsIgnoreCase(obj.Name))
             {
                 stack++;
                 obj.PrintData();
+                useful.Name = obj.Name;
             }
         }
 
@@ -75,6 +85,7 @@ public class RequestService
             System.out.println("Запись не найдена.\n");
         }
 
+        return  useful;
     }
 
 }
